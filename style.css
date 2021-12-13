@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  display: grid;
+  height: 100%;
+  place-items: center;
+  text-align: center;
+  background: lightblue;
+  overflow: hidden;
+}
+
+.star {
+  width:35px;
+  height:35px;
+  background-image: url(evilalphonse.jpg);
+  border-radius: 50%;
+  background-size: 35px 35px;
+}
+
+.text {
+  background-color:black;
+  color:white;
+}
+
+.back {
+  width:750px;
+  height:750px;
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+}
+
+.back:before {
+  position:absolute;
+  width: 750px;
+  content: '';
+  height:750px;
+  top:0;
+  left:0;
+  background-image: url("alphonse.jpg");
+  background-size: 100%;
+  border-radius: 50%;;
+  animation: alphonseimationsize 1900ms alternate infinite ease-in-out, alphonseimationspin 1900ms forwards infinite linear;
+}
+
+@keyframes alphonseimationsize {
+  0% {
+    background-size: 300;
+  }
+  100% {
+    background-size: 5px;
+  }
+}
+
+@keyframes alphonseimationspin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  position: absolute;
+  width: 400px;
+  background-image: url(special.jpg);
+  background-size: 400px 100%;
+  padding: 20px 30px;
+  border: 1px solid green;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container .star-widget input {
+  display: none;
+}
+
+.star-widget label {
+  font-size: 35px;
+  color: #444;
+  padding: 10px;
+  float: right;
+  transition: all 0.2s ease;
+}
+
+input:not(:checked) ~ label:hover>div,
+input:not(:checked) ~ label:hover ~ label>div {
+  background-image: url(goodalphonse.jpg);
+}
+
+input:checked ~ label>div {
+  background-image: url(goodalphonse.jpg);
+}
